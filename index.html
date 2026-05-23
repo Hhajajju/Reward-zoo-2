@@ -376,7 +376,7 @@ loadSettings();
 
         function setupEventListeners() {
             // Login removed
-            document.getElementById('admin-logout-btn').addEventListener('click', () => signOut(auth));
+            document.getElementById('admin-logout-btn').style.display = 'none';
             document.getElementById('save-settings-btn').addEventListener('click', saveSettings);
             document.getElementById('send-notification-btn').addEventListener('click', sendNotification);
             document.querySelectorAll('.nav-link').forEach(link => {
