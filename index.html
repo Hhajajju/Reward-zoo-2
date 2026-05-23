@@ -411,18 +411,7 @@ loadSettings();
             });
         }
 
-        async function handleAdminLogin() {
-            const email = document.getElementById('admin-email').value;
-            const password = document.getElementById('admin-password').value;
-            if(!email || !password) return showAlert("Please enter email and password.");
-            try {
-                const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                if (!ADMIN_UIDS.includes(userCredential.user.uid)) {
-                    await signOut(auth);
-                    showAlert("You are not authorized to access this panel.");
-                }
-            } catch (error) { showAlert(error.message); }
-        }
+        
 
         function loadDashboardData() {
             onSnapshot(collection(db, "users"), snap => { document.getElementById('total-users').textContent = snap.size; });
