@@ -356,21 +356,14 @@
         window.onload = () => {
             lucide.createIcons();
             setupEventListeners();
-            onAuthStateChanged(auth, (user) => {
-                if (user && ADMIN_UIDS.includes(user.uid)) {
-                    loginView.style.display = 'none';
-                    dashboardView.style.display = 'flex';
-                    navigateTo('dashboard-page');
-                    loadDashboardData();
-                    loadUsers();
-                    loadWithdrawals();
-                    loadSettings();
-                } else {
-                    loginView.style.display = 'flex';
-                    dashboardView.style.display = 'none';
-                }
-            });
-        };
+            loginView.style.display = 'none';
+dashboardView.style.display = 'flex';
+
+navigateTo('dashboard-page');
+loadDashboardData();
+loadUsers();
+loadWithdrawals();
+loadSettings();
 
         function navigateTo(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
